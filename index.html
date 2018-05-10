@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+    <meta name="format-detection" content="telphone=no, email=no, address=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <title>Document</title>
+</head>
+<script>
+    document.documentElement.style.fontSize = window.innerWidth / 750 * 100 + 'px';
+</script>
+
+<body>
+    <div class="box">
+        <header class="header">
+            <ul class="list">
+                <li class="one">一</li>
+                <li>二</li>
+                <li>三</li>
+                <li>四</li>
+            </ul>
+        </header>
+
+        <div class="swiper-container banner">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background:blue;">
+                    1
+                </div>
+                <div class="swiper-slide">
+                    2
+                </div>
+                <div class="swiper-slide" style="background:yellow;">
+                    3
+                </div>
+                <div class=" swiper-slide four " style="background:pink;">
+                    4
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/swiper-3.3.1.min.js "></script>
+    <script src="./js/zepto.js"></script>
+    <script>
+        var myswiper = new Swiper('.banner', {
+            onSildeChangeStart: function(swiper) {
+                var index = swiper.activeIndex;
+                change(index);
+            }
+
+        })
+        $('.list li').on('tap', function() {
+            var i = $(this).index();
+            change(i);
+            myswiper.slideTo(i);
+        });
+
+        function change(index) {
+            $('.list li').eq(index).addClass('one').siblings().removeClass('one');
+        }
+    </script>
+</body>
+
+</html>
